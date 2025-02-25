@@ -13,11 +13,14 @@ function App() {
   // const [test, setTest] = useState({ name: 'Bob' });
 
   function handlePrevious() {
-    if (step > 1) stepStep(step - 1);
+    if (step > 1) stepStep((s) => s - 1);
   }
 
   function handleNext() {
-    if (step < 3) stepStep(step + 1);
+    if (step < 3) {
+      stepStep((s) => s + 1);
+      stepStep((s) => s + 1);
+    }
 
     // BAD PRACTICE
     // test.name = 'Mahtab';
@@ -26,7 +29,7 @@ function App() {
 
   return (
     <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
 
