@@ -11,7 +11,6 @@ export default function App() {
     <div>
       <Steps />
       <Steps />
-      <Challenge />
     </div>
   );
 }
@@ -72,48 +71,6 @@ function Steps() {
           </div>
         </div>
       )}
-    </div>
-  );
-}
-
-function Challenge() {
-  return (
-    <div className="challenge">
-      <Counter />
-    </div>
-  );
-}
-
-function Counter() {
-  const [count, setcount] = useState(0);
-  const [step, setStep] = useState(1);
-
-  const date = new Date();
-  date.setDate(date.getDate() + count);
-
-  return (
-    <div>
-      <div>
-        <button onClick={() => setStep((s) => s - 1)}>-</button>
-        <span>Step: {step}</span>
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
-      </div>
-
-      <div>
-        <button onClick={() => setcount((c) => c - step)}>-</button>
-        <span>Count: {count}</span>
-        <button onClick={() => setcount((c) => c + step)}>+</button>
-      </div>
-      <p>
-        <span>
-          {count === 0
-            ? 'Today is'
-            : count > 0
-            ? `${count} days from today `
-            : `${Math.abs(count)} days ago was `}
-        </span>
-        <span>{date.toDateString()}</span>
-      </p>
     </div>
   );
 }
